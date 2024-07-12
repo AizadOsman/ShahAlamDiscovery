@@ -1,16 +1,23 @@
 package com.example.shahalamdiscovery;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    ImageButton url;
+    FrameLayout web;
     FirebaseAuth auth;
     FirebaseUser user;
     TextView profileText;
@@ -24,6 +31,22 @@ public class ProfileActivity extends AppCompatActivity {
 
         user = auth.getCurrentUser();
         profileText.setText(user.getEmail());
+
+        web = findViewById(R.id.webLink);
+        web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://github.com/AizadOsman/ShahAlamDiscovery.git");
+            }
+        });
+
+        url = findViewById(R.id.web);
+        url.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoUrl("https://github.com/AizadOsman/ShahAlamDiscovery.git");
+            }
+        });
 
     }
 
@@ -51,5 +74,15 @@ public class ProfileActivity extends AppCompatActivity {
         //open Top Places Activity
         Intent i= new Intent(this, TopPlacesActivity.class);
         startActivity(i);
+    }
+
+    void gotoUrl(String s){
+        try{
+            Uri uri = Uri.parse(s);
+            startActivity(new Intent(Intent.ACTION_VIEW, uri));
+        }
+        catch (Exception e){
+            Toast.makeText(getApplicationContext(), "No Website Linke", Toast.LENGTH_SHORT).show();
+        }
     }
 }
