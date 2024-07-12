@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "856006074123",
+    "project_id": "shahalamdiscovery",
+    "storage_bucket": "shahalamdiscovery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856006074123:android:609a878403826154aacc0e",
+        "android_client_info": {
+          "package_name": "com.example.shahalamdiscovery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWmWfaQxt37p24cSmSbD386iQ_L6XYUtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
